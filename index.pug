@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Document
+    link(rel="stylesheet", href="/stylus/style.styl")
+  body
+    #app
+      button(v-if="width != 300" @click="sp") sp
+      button(v-else @click="pc") pc
+      iframe(:srcdoc="html" :height="height" :width="width")
+      button(@click="edit = !edit") ✏️
+      div(v-if="edit")
+        textarea(v-model="code")
+        textarea(v-model="style")
+      div(v-else)
+        .box {{code}}
+        .box {{style}}
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js")
+    script(src="/js/script.js")
